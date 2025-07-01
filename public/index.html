@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XRPL Test Wallet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 25px;
+            border: 1px solid #e1e5e9;
+            border-radius: 15px;
+            background: #f8f9fa;
+        }
+
+        .section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .btn-success {
+            background: #28a745;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+
+
+        .balance-display {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #28a745;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .status {
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .qr-code {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .qr-code img {
+            max-width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .form-text {
+            font-size: 0.875rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 XRPL Test Wallet</h1>
+            <p>Create and manage test wallets on the XRPL Testnet</p>
+        </div>
+
+        <div class="content">
+            <!-- Wallet Creation Section -->
+            <div class="section">
+                <h2>📝 Create New Test Wallet</h2>
+                <p>Generate a new test wallet with automatic funding from the XRPL Testnet faucet.</p>
+                <button class="btn" onclick="createWallet()" id="createBtn">
+                    <span id="createBtnText">Create New Wallet</span>
+                </button>
+                <div id="walletResult"></div>
+            </div>
+
+            <!-- Wallet Info Section -->
+            <div class="section hidden" id="walletSection">
+                <h2>💰 Wallet Information</h2>
+                
+                <div class="form-group">
+                    <label for="walletAddress">Classic Address:</label>
+                    <input type="text" id="walletAddress" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="walletSeed">Seed (Private Key):</label>
+                    <input type="text" id="walletSeed" readonly>
+                </div>
+
+                <div class="balance-display" id="balanceDisplay">
+                    Balance: <span id="balanceAmount">0</span> XRP
+                </div>
+                
+                <button class="btn btn-secondary" onclick="refreshBalance()">Refresh Balance</button>
+            </div>
+
+            <!-- WalletConnect Section -->
+            <div class="section">
+                <h2>🔗 WalletConnect Integration</h2>
+                <p>Connect to external wallets using WalletConnect v2</p>
+                
+                <div class="form-group">
+                    <label for="network">Network:</label>
+                    <select id="network">
+                        <option value="xrpl:1">Testnet (xrpl:1)</option>
+                        <option value="xrpl:0">Mainnet (xrpl:0)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="walletConnectUri">WalletConnect URI:</label>
+                    <input type="text" id="walletConnectUri" class="form-control" placeholder="wc:...">
+                </div>
+                <button class="btn" onclick="connectWalletConnect()" id="wcBtn">
+                    <span id="wcBtnText">Connect WalletConnect</span>
+                </button>
+                
+                <div id="walletConnectResult"></div>
+                <div id="qrCode" class="hidden"></div>
+                
+                <!-- Pending Request Approval Section -->
+                <div id="pendingRequestSection" class="hidden">
+                    <div class="card">
+                        <h3>🔄 Pending Request</h3>
+                        <div id="pendingRequestDetails"></div>
+                        <div class="button-group">
+                            <button class="btn btn-danger" onclick="rejectPendingRequest()">Reject</button>
+                            <button class="btn btn-success" onclick="approvePendingRequest()">Approve</button>
+                            <button class="btn btn-danger" onclick="disconnectWalletConnect()" id="disconnectBtn" style="display: none;">
+                                <span id="disconnectBtnText">Disconnect from Dapp</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Section -->
+            <div class="section">
+                <h2>📊 Connection Status</h2>
+                <div id="connectionStatus" class="status info">
+                    Connecting to XRPL Testnet...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================================================
+        // XRPL Test Wallet - Frontend JavaScript
+        // ============================================================================
+        // This is a reference implementation of a WalletConnect v2 wallet for XRPL
+        // It demonstrates how to:
+        // 1. Create and manage XRPL test wallets
+        // 2. Connect to dapps via WalletConnect v2
+        // 3. Handle transaction signing requests
+        // 4. Provide user approval interface for connections and transactions
+        // ============================================================================
+
+        // Global state management
+        let currentWallet = null; // Currently loaded wallet
+
+        // WalletConnect state management
+        let currentPendingRequest = null; // Currently pending request (connection or transaction)
+        let pollingActive = true; // Whether to poll for new requests
+
+        // ============================================================================
+        // Application Initialization
+        // ============================================================================
+        
+        /**
+         * Initialize the application when DOM is loaded
+         * Sets up polling for pending requests and loads existing wallet
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('XRPL Test Wallet initialized');
+            
+            // Start polling for pending WalletConnect requests
+            console.log('Starting immediate check for pending requests...');
+            checkForPendingRequests();
+            
+            // Additional check after 1 second to catch any requests that came in during initialization
+            setTimeout(() => {
+                console.log('Checking for existing requests after 1 second...');
+                checkForPendingRequests();
+            }, 1000);
+            
+            // Load existing wallet if available
+            checkForExistingWallet();
+        });
+
+        async function checkConnection() {
+            try {
+                // Simple connection test - just check if server is responding
+                const response = await fetch('/api/walletconnect/session');
+                if (response.ok) {
+                    document.getElementById('connectionStatus').className = 'status success';
+                    document.getElementById('connectionStatus').textContent = '✅ Connected to XRPL Testnet';
+                } else {
+                    throw new Error('Connection failed');
+                }
+            } catch (error) {
+                document.getElementById('connectionStatus').className = 'status error';
+                document.getElementById('connectionStatus').textContent = '❌ Failed to connect to XRPL Testnet';
+            }
+        }
+
+        // ============================================================================
+        // Wallet Management Functions
+        // ============================================================================
+        
+        /**
+         * Create a new XRPL test wallet
+         * Calls the server to generate a new wallet and fund it on testnet
+         */
+        async function createWallet() {
+            const createBtn = document.getElementById('createBtn');
+            const createBtnText = document.getElementById('createBtnText');
+            const walletResult = document.getElementById('walletResult');
+
+            // Show loading state
+            createBtn.disabled = true;
+            createBtnText.classList.add('hidden');
+            walletResult.innerHTML = '';
+
+            try {
+                // Call server endpoint to create and fund wallet
+                const response = await fetch('/api/create-wallet', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    currentWallet = data.wallet;
+                    displayWalletInfo(data.wallet);
+                    showStatus('Wallet created successfully!', 'success');
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                showStatus('Error creating wallet: ' + error.message, 'error');
+            } finally {
+                // Reset button state
+                createBtn.disabled = false;
+                createBtnText.classList.remove('hidden');
+            }
+        }
+
+        function displayWalletInfo(wallet) {
+            document.getElementById('walletSection').classList.remove('hidden');
+            
+            // Set the current wallet
+            currentWallet = wallet;
+            
+            document.getElementById('walletAddress').value = wallet.address;
+            document.getElementById('walletSeed').value = wallet.seed;
+            document.getElementById('balanceAmount').textContent = 'Checking balance...';
+            
+            // Check balance
+            refreshBalance();
+        }
+
+        async function refreshBalance() {
+            if (!currentWallet) {
+                showStatus('No wallet available', 'error');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/balance/${currentWallet.address}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('balanceAmount').textContent = `${data.balanceInXRP} XRP`;
+                    showStatus(`Balance updated: ${data.balanceInXRP} XRP`, 'success');
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                console.error('Error refreshing balance:', error);
+                showStatus('Error refreshing balance: ' + error.message, 'error');
+            }
+        }
+
+        // ============================================================================
+        // WalletConnect Integration Functions
+        // ============================================================================
+        
+        /**
+         * Connect to a dapp via WalletConnect v2
+         * Takes a WalletConnect URI and establishes a connection
+         */
+        async function connectWalletConnect() {
+            const wcBtn = document.getElementById('wcBtn');
+            const wcBtnText = document.getElementById('wcBtnText');
+            const disconnectBtn = document.getElementById('disconnectBtn');
+            const walletConnectResult = document.getElementById('walletConnectResult');
+            const qrCode = document.getElementById('qrCode');
+            const uriInput = document.getElementById('walletConnectUri');
+            const networkSelect = document.getElementById('network');
+
+            // Validate input
+            const uri = uriInput.value.trim();
+            if (!uri) {
+                showStatus('Please enter a WalletConnect URI', 'error');
+                return;
+            }
+
+            const network = networkSelect.value;
+            console.log('Selected network:', network);
+
+            console.log('=== FRONTEND WALLETCONNECT CONNECTION ===');
+            console.log('Attempting to connect with URI:', uri);
+
+            // Show loading state
+            wcBtn.disabled = true;
+            wcBtnText.classList.add('hidden');
+            walletConnectResult.innerHTML = '';
+            qrCode.classList.add('hidden');
+
+            try {
+                const response = await fetch('/api/walletconnect/connect', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 
+                        uri: uri,
+                        network: network
+                    })
+                });
+
+                const data = await response.json();
+                console.log('WalletConnect response:', data);
+
+                if (data.success) {
+                    showStatus('WalletConnect connection established successfully!', 'success');
+                    
+                    // Show disconnect button
+                    disconnectBtn.style.display = 'block';
+                    
+                    // Start polling for pending requests when connected
+                    startPolling();
+                    
+                    // Display connection details
+                    if (data.details) {
+                        const detailsHtml = `
+                            <div class="wallet-info">
+                                <h3>🔗 WalletConnect Connected</h3>
+                                <p><strong>Connected:</strong> ${data.details.connected}</p>
+                                <p><strong>Network:</strong> ${data.details.network}</p>
+                                <p><strong>Topic:</strong> ${data.details.pairing?.topic || 'N/A'}</p>
+                                <p><strong>Active Sessions:</strong> ${data.details.sessions?.length || 0}</p>
+                                <p><strong>Pairing Active:</strong> ${data.details.pairing?.active || false}</p>
+                                <p><strong>Expiry:</strong> ${new Date((data.details.pairing?.expiry || 0) * 1000).toLocaleString()}</p>
+                            </div>
+                        `;
+                        walletConnectResult.innerHTML = detailsHtml;
+                    }
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                console.error('WalletConnect connection error:', error);
+                showStatus('Error connecting WalletConnect: ' + error.message, 'error');
+            } finally {
+                // Reset button state
+                wcBtn.disabled = false;
+                wcBtnText.classList.remove('hidden');
+            }
+        }
+
+        async function disconnectWalletConnect() {
+            const disconnectBtn = document.getElementById('disconnectBtn');
+            const disconnectBtnText = document.getElementById('disconnectBtnText');
+            const walletConnectResult = document.getElementById('walletConnectResult');
+
+            console.log('=== FRONTEND WALLETCONNECT DISCONNECTION ===');
+            console.log('Attempting to disconnect from WalletConnect');
+
+            // Show loading state
+            disconnectBtn.disabled = true;
+            disconnectBtnText.classList.add('hidden');
+
+            try {
+                const response = await fetch('/api/walletconnect/disconnect', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const data = await response.json();
+                console.log('WalletConnect disconnect response:', data);
+
+                if (data.success) {
+                    showStatus('Successfully disconnected from WalletConnect!', 'success');
+                    
+                    // Hide disconnect button
+                    disconnectBtn.style.display = 'none';
+                    
+                    // Clear connection details
+                    walletConnectResult.innerHTML = `
+                        <div class="status info">
+                            <h4>🔗 Ready to Connect</h4>
+                            <p>Enter a WalletConnect URI to connect to a dapp</p>
+                        </div>
+                    `;
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                console.error('WalletConnect disconnection error:', error);
+                showStatus('Error disconnecting WalletConnect: ' + error.message, 'error');
+            } finally {
+                // Reset button state
+                disconnectBtn.disabled = false;
+                disconnectBtnText.classList.remove('hidden');
+            }
+        }
+
+        // ============================================================================
+        // Utility Functions
+        // ============================================================================
+        
+        /**
+         * Display a status message to the user
+         * Automatically places the message in the appropriate container based on context
+         * @param {string} message - The message to display
+         * @param {string} type - 'success', 'error', or 'info'
+         */
+        function showStatus(message, type) {
+            const statusDiv = document.createElement('div');
+            statusDiv.className = `status ${type}`;
+            statusDiv.textContent = message;
+            
+            // Find the appropriate container based on context
+            let container;
+            if (message.includes('wallet')) {
+                container = document.getElementById('walletResult');
+            } else if (message.includes('WalletConnect')) {
+                container = document.getElementById('walletConnectResult');
+            } else {
+                container = document.getElementById('walletResult');
+            }
+            
+            container.innerHTML = '';
+            container.appendChild(statusDiv);
+            
+            // Auto-remove status after 5 seconds
+            setTimeout(() => {
+                if (statusDiv.parentNode) {
+                    statusDiv.parentNode.removeChild(statusDiv);
+                }
+            }, 5000);
+        }
+
+        // ============================================================================
+        // Pending Request Management
+        // ============================================================================
+        
+        /**
+         * Poll for pending WalletConnect requests (connections and transactions)
+         * This function is called periodically to check for new requests from dapps
+         */
+        function checkForPendingRequests() {
+            fetch('/api/walletconnect/pending-requests')
+            .then(response => response.json())
+            .then(data => {
+                const now = Date.now();
+                const maxAge = 30 * 1000; // 30 seconds
+                
+                // Only log if there are actual requests
+                if (data.connectionRequest || data.transactionRequest) {
+                    console.log('Found pending requests:', data);
+                }
+                
+                // Check for new connection request
+                if (data.connectionRequest && 
+                    (!currentPendingRequest || currentPendingRequest.type !== 'connection' || currentPendingRequest.id !== data.connectionRequest.id)) {
+                    console.log('Showing connection request approval');
+                    showPendingRequest('connection', data.connectionRequest);
+                }
+                
+                // Check for new transaction request
+                if (data.transactionRequest && 
+                    (!currentPendingRequest || currentPendingRequest.type !== 'transaction' || currentPendingRequest.id !== data.transactionRequest.id)) {
+                    console.log('Showing transaction request approval');
+                    showPendingRequest('transaction', data.transactionRequest);
+                }
+            })
+            .catch(error => console.error('Error checking pending requests:', error));
+        }
+        
+        /**
+         * Display a pending request (connection or transaction) for user approval
+         * @param {string} type - 'connection' or 'transaction'
+         * @param {object} request - The request data from the dapp
+         */
+        function showPendingRequest(type, request) {
+            console.log('showPendingRequest called with:', type, request);
+            console.log('Full request structure:', JSON.stringify(request, null, 2));
+            
+            // Clear any existing pending request first
+            if (currentPendingRequest) {
+                console.log('Clearing existing pending request:', currentPendingRequest.type);
+                hidePendingRequest();
+            }
+            
+            // Store the current request and show the approval interface
+            currentPendingRequest = { type, ...request };
+            const section = document.getElementById('pendingRequestSection');
+            const details = document.getElementById('pendingRequestDetails');
+            
+            if (type === 'connection') {
+                details.innerHTML = `
+                    <p><strong>Connection Request from:</strong></p>
+                    <p>• App: ${request.proposal.params.proposer.metadata.name || 'Unknown'}</p>
+                    <p>• URL: ${request.proposal.params.proposer.metadata.url || 'Unknown'}</p>
+                    <p>• Methods: ${request.proposal.params.requiredNamespaces.xrpl.methods.join(', ')}</p>
+                    <p>• Chain: ${request.proposal.params.requiredNamespaces.xrpl.chains.map(chain => 
+                        chain === 'xrpl:0' ? 'Mainnet (xrpl:0)' : 
+                        chain === 'xrpl:1' ? 'Testnet (xrpl:1)' : chain
+                    ).join(', ')}</p>
+                `;
+            } else if (type === 'transaction') {
+                const chainId = request.request.params.chainId;
+                const chainDisplay = chainId === 'xrpl:0' ? 'Mainnet (xrpl:0)' : 
+                                   chainId === 'xrpl:1' ? 'Testnet (xrpl:1)' : chainId;
+                
+                // Show full request JSON for debugging
+                details.innerHTML = `
+                    <p><strong>Transaction Signing Request:</strong></p>
+                    <p>• Chain: ${chainDisplay}</p>
+                    <p>• Method: ${request.request.params.request.method}</p>
+                    <div style="background: #f5f5f5; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                        <strong>Full Request JSON:</strong>
+                        <pre style="white-space: pre-wrap; word-break: break-all; font-size: 12px;">${JSON.stringify(request, null, 2)}</pre>
+                    </div>
+                `;
+            }
+            
+            console.log('Showing approval section, removing hidden class');
+            section.classList.remove('hidden');
+        }
+        
+        /**
+         * Approve the currently pending request (connection or transaction)
+         * Sends approval to the server which handles the WalletConnect response
+         */
+        function approvePendingRequest() {
+            if (!currentPendingRequest) return;
+            
+            console.log('=== APPROVING PENDING REQUEST ===');
+            console.log('Request type:', currentPendingRequest.type);
+            console.log('Request data:', currentPendingRequest);
+            
+            // Show immediate feedback to user
+            showImmediateFeedback('Processing approval...', 'info');
+            
+            const endpoint = currentPendingRequest.type === 'connection' 
+                ? '/api/walletconnect/approve-connection'
+                : '/api/walletconnect/approve-transaction';
+            
+            console.log('Sending approval to endpoint:', endpoint);
+            
+            fetch(endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    timestamp: Date.now(),
+                    request: currentPendingRequest 
+                })
+            })
+            .then(response => {
+                console.log('Approval response status:', response.status);
+                return response.json();
+            })
+            .then(data => {
+                console.log('Request approved:', data);
+                if (currentPendingRequest.type === 'connection') {
+                    showImmediateFeedback('Connection approved successfully!', 'success');
+                    showStatus('Connection approved successfully! Wallet is now connected to the dapp.', 'success');
+                } else {
+                    showImmediateFeedback('Transaction signed successfully!', 'success');
+                    showStatus('Transaction signed successfully! You can now submit it to XRPL if desired.', 'success');
+                    
+                    // Show transaction submission section if transaction was approved
+                    if (data.canSubmitToXRPL) {
+                        showTransactionSubmission();
+                    }
+                }
+                console.log('Hiding pending request interface...');
+                hidePendingRequest();
+                // Don't stop polling - keep it active for future requests
+            })
+            .catch(error => {
+                console.error('Error approving request:', error);
+                showImmediateFeedback('Error approving request: ' + error.message, 'error');
+                showStatus('Error approving request: ' + error.message, 'error');
+            });
+        }
+        
+        function rejectPendingRequest() {
+            if (!currentPendingRequest) return;
+            
+            const endpoint = currentPendingRequest.type === 'connection' 
+                ? '/api/walletconnect/reject-connection'
+                : '/api/walletconnect/reject-transaction';
+            
+            fetch(endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    timestamp: Date.now(),
+                    request: currentPendingRequest 
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Request rejected:', data);
+                showStatus(`Request rejected`, 'info');
+                hidePendingRequest();
+                // Don't stop polling - keep it active for future requests
+            })
+            .catch(error => {
+                console.error('Error rejecting request:', error);
+                showStatus('Error rejecting request', 'error');
+            });
+        }
+        
+        function hidePendingRequest() {
+            console.log('=== HIDING PENDING REQUEST ===');
+            console.log('Current pending request:', currentPendingRequest);
+            
+            document.getElementById('pendingRequestSection').classList.add('hidden');
+            currentPendingRequest = null;
+            
+            console.log('Pending request interface hidden and cleared');
+        }
+
+        function stopPolling() {
+            console.log('Stopping polling for pending requests');
+            pollingActive = false;
+        }
+
+        function startPolling() {
+            console.log('Starting polling for pending requests');
+            pollingActive = true;
+        }
+        
+        // Start polling for pending requests (reduced frequency)
+        setInterval(() => {
+            if (pollingActive) {
+                checkForPendingRequests();
+            }
+        }, 2000); // Poll every 2 seconds instead of 500ms
+
+        // Function to check if approval interface is visible
+        function isApprovalInterfaceVisible() {
+            const section = document.getElementById('pendingRequestSection');
+            return !section.classList.contains('hidden');
+        }
+        
+        // Function to show immediate feedback
+        function showImmediateFeedback(message, type = 'info') {
+            const feedbackDiv = document.createElement('div');
+            feedbackDiv.className = `status ${type}`;
+            feedbackDiv.textContent = message;
+            feedbackDiv.style.position = 'fixed';
+            feedbackDiv.style.top = '20px';
+            feedbackDiv.style.right = '20px';
+            feedbackDiv.style.zIndex = '9999';
+            feedbackDiv.style.padding = '10px 20px';
+            feedbackDiv.style.borderRadius = '5px';
+            feedbackDiv.style.backgroundColor = type === 'success' ? '#4CAF50' : 
+                                               type === 'error' ? '#f44336' : '#2196F3';
+            feedbackDiv.style.color = 'white';
+            
+            document.body.appendChild(feedbackDiv);
+            
+            setTimeout(() => {
+                if (feedbackDiv.parentNode) {
+                    feedbackDiv.parentNode.removeChild(feedbackDiv);
+                }
+            }, 3000);
+        }
+
+        function updateConnectionStatus() {
+            fetch('/api/walletconnect/status')
+            .then(response => response.json())
+            .then(data => {
+                const resultDiv = document.getElementById('walletConnectResult');
+                const disconnectBtn = document.getElementById('disconnectBtn');
+                
+                if (data.success) {
+                    if (data.connected) {
+                        // Show disconnect button when connected
+                        disconnectBtn.style.display = 'block';
+                        
+                        resultDiv.innerHTML = `
+                            <div class="status success">
+                                <h4>✅ Connected</h4>
+                                <p>Active sessions: ${data.sessions.length}</p>
+                                <p>Active pairings: ${data.activePairings.length}</p>
+                            </div>
+                        `;
+                    } else {
+                        // Hide disconnect button when not connected
+                        disconnectBtn.style.display = 'none';
+                        
+                        resultDiv.innerHTML = `
+                            <div class="status info">
+                                <h4>🔗 Ready to Connect</h4>
+                                <p>Enter a WalletConnect URI to connect to a dapp</p>
+                            </div>
+                        `;
+                    }
+                } else {
+                    // Hide disconnect button on error
+                    disconnectBtn.style.display = 'none';
+                    
+                    resultDiv.innerHTML = `
+                        <div class="status error">
+                            <h4>❌ Connection Error</h4>
+                            <p>${data.error}</p>
+                        </div>
+                    `;
+                }
+            })
+            .catch(error => {
+                console.error('Error checking connection status:', error);
+                // Hide disconnect button on error
+                document.getElementById('disconnectBtn').style.display = 'none';
+                
+                document.getElementById('walletConnectResult').innerHTML = `
+                    <div class="status error">
+                        <h4>❌ Connection Error</h4>
+                        <p>Failed to check connection status</p>
+                    </div>
+                `;
+            });
+        }
+
+        // Check for existing wallet on page load
+        async function checkForExistingWallet() {
+            try {
+                const response = await fetch('/api/wallet');
+                const data = await response.json();
+                
+                if (data.success && data.wallet.hasWallet) {
+                    console.log('Found existing wallet:', data.wallet.address);
+                    currentWallet = {
+                        address: data.wallet.address,
+                        seed: data.wallet.seed
+                    };
+                    displayWalletInfo({
+                        address: data.wallet.address,
+                        seed: data.wallet.seed
+                    });
+                    
+                    // Also check balance
+                    refreshBalance();
+                } else {
+                    console.log('No existing wallet found');
+                }
+            } catch (error) {
+                console.error('Error checking for existing wallet:', error);
+            }
+        }
+
+        // Debug function to check current state
+        function debugCurrentState() {
+            console.log('=== DEBUG CURRENT STATE ===');
+            console.log('Current pending request:', currentPendingRequest);
+            console.log('Approval interface visible:', isApprovalInterfaceVisible());
+            console.log('Current wallet:', currentWallet);
+            
+            // Check pending requests from server
+            fetch('/api/walletconnect/pending-requests')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Server pending requests:', data);
+            })
+            .catch(error => console.error('Error checking server state:', error));
+        }
+        
+        // Make debug function available globally
+        window.debugCurrentState = debugCurrentState;
+        
+
+        
+
+    </script>
+</body>
+</html> 

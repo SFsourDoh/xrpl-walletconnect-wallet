@@ -1,0 +1,24 @@
+{
+  "name": "xrpl-test-wallet",
+  "version": "1.0.0",
+  "description": "A simple test wallet for XRPL using WalletConnect",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": ["xrpl", "wallet", "walletconnect", "testnet"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "xrpl": "^2.14.0",
+    "@walletconnect/sign-client": "^2.21.4",
+    "@walletconnect/modal": "^2.6.2",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+} 
