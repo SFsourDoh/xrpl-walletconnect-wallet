@@ -1,15 +1,15 @@
-# XRPL Test Wallet - WalletConnect v2 Reference Implementation
+# XRPL Test Wallet with WalletConnect v2
 
-A comprehensive reference implementation of a WalletConnect v2 wallet for the XRP Ledger (XRPL). This project demonstrates how to build a wallet that can connect to dapps and handle transaction signing requests using WalletConnect v2.
+A simple test wallet implementation for the XRP Ledger (XRPL) that demonstrates WalletConnect v2 integration. This project shows how to create a basic wallet that can connect to dapps and handle transaction signing requests.
 
 ## 🚀 Features
 
-- **Wallet Management**: Create and manage test wallets on XRPL Testnet with automatic funding
-- **WalletConnect v2 Integration**: Connect to external dapps using WalletConnect v2 protocol
-- **Transaction Signing**: Handle and approve transaction signing requests from connected dapps
-- **User Approval Interface**: Clean UI for approving/rejecting connection and transaction requests
-- **REST API**: Complete API for wallet operations and WalletConnect management
-- **Reference Implementation**: Well-documented code that can be used as a starting point for other projects
+- **Basic Wallet Management**: Create test wallets on XRPL Testnet with automatic funding
+- **WalletConnect v2 Support**: Connect to dapps using WalletConnect v2 protocol
+- **Transaction Signing**: Handle transaction signing requests from connected dapps
+- **Simple Approval Interface**: Basic UI for approving/rejecting requests
+- **REST API**: API endpoints for wallet operations and WalletConnect management
+- **Learning Resource**: Documented code that might be helpful for understanding WalletConnect v2
 
 ## 📋 Prerequisites
 
@@ -17,6 +17,7 @@ Before running this project, make sure you have:
 
 - **Node.js** (version 16 or higher)
 - **npm** or **yarn** package manager
+- **Git** (for cloning the repository)
 - **WalletConnect Project ID** (get one at [cloud.walletconnect.com](https://cloud.walletconnect.com))
 
 ## 🛠️ Installation & Setup
@@ -24,8 +25,13 @@ Before running this project, make sure you have:
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd wc_wallet
+# Clone using HTTPS
+git clone https://github.com/SFsourDoh/xrpl-walletconnect-wallet.git
+cd xrpl-walletconnect-wallet
+
+# Or clone using SSH (if you have SSH keys set up)
+git clone git@github.com:SFsourDoh/xrpl-walletconnect-wallet.git
+cd xrpl-walletconnect-wallet
 ```
 
 ### 2. Install Dependencies
@@ -46,7 +52,7 @@ WALLETCONNECT_PROJECT_ID=your_project_id_here
 PORT=3002
 ```
 
-**Important**: You must get a WalletConnect Project ID from [cloud.walletconnect.com](https://cloud.walletconnect.com). This is required for WalletConnect v2 to work.
+**Note**: You'll need a WalletConnect Project ID from [cloud.walletconnect.com](https://cloud.walletconnect.com) for WalletConnect v2 to work.
 
 ### 4. Start the Server
 
@@ -63,6 +69,22 @@ npm run dev
 ### 5. Access the Application
 
 Open your browser and navigate to `http://localhost:3002`
+
+### 6. Development
+
+To make changes and contribute:
+
+```bash
+# Create a new branch for your changes
+git checkout -b feature/your-feature-name
+
+# Make your changes, then commit
+git add .
+git commit -m "Add your feature description"
+
+# Push to your fork
+git push origin feature/your-feature-name
+```
 
 ## 🔧 Configuration Options
 
@@ -170,33 +192,44 @@ Approve and sign a pending transaction request.
 #### `POST /api/walletconnect/reject-transaction`
 Reject a pending transaction request.
 
-## 🏗️ Architecture
+## 🏗️ Project Structure
+
+```
+xrpl-walletconnect-wallet/
+├── index.js              # Main server file
+├── package.json          # Dependencies and scripts
+├── public/
+│   └── index.html        # Frontend interface
+├── .env                  # Environment variables (create this)
+├── .gitignore           # Git ignore rules
+└── README.md            # This file
+```
 
 ### Frontend (public/index.html)
-- **Wallet Management UI**: Create wallets, view balances
-- **WalletConnect Interface**: Connect to dapps, handle requests
-- **Request Approval**: User interface for approving/rejecting requests
-- **Real-time Polling**: Continuously checks for new requests
+- Basic wallet management interface
+- WalletConnect connection handling
+- Simple request approval UI
+- Polling for new requests
 
 ### Backend (index.js)
-- **XRPL Integration**: Wallet creation, balance checking, transaction signing
-- **WalletConnect v2 Server**: Session management, request handling
-- **REST API**: Endpoints for all wallet and WalletConnect operations
-- **Event Handling**: Processes WalletConnect events and requests
+- XRPL wallet operations
+- WalletConnect v2 session management
+- REST API endpoints
+- Request processing
 
-### Key Components
+### Main Components
 
-1. **WalletConnect Client**: Manages connections and sessions with dapps
-2. **Transaction Signer**: Signs XRPL transactions using the current wallet
-3. **Request Handler**: Processes incoming connection and transaction requests
-4. **State Management**: Tracks pending requests and current wallet state
+1. **WalletConnect Client**: Handles dapp connections
+2. **Transaction Signer**: Signs XRPL transactions
+3. **Request Handler**: Processes dapp requests
+4. **State Management**: Tracks pending requests
 
-## 🔒 Security Considerations
+## 🔒 Security Notes
 
-- **Testnet Only**: This implementation is designed for testing on XRPL testnet
-- **Local Storage**: Wallet information is stored locally in `wallet.json`
-- **No Production Use**: Do not use this wallet for mainnet or production environments
-- **Private Key Security**: The wallet seed is stored in plain text for development purposes
+- **Testnet Only**: This is designed for XRPL testnet testing only
+- **Local Storage**: Wallet info is stored locally in `wallet.json`
+- **Development Use**: Not intended for production or mainnet use
+- **Basic Security**: Wallet seeds are stored in plain text for simplicity
 
 ## 🐛 Troubleshooting
 
@@ -217,26 +250,26 @@ Reject a pending transaction request.
    - Verify the `.env` file is properly configured
    - Ensure the port is not already in use
 
-### Debug Mode
+### Debug Information
 
-The application includes comprehensive logging. Check the server console for detailed information about:
-- WalletConnect connection attempts
-- Transaction signing requests
-- API endpoint calls
-- Error details
+The application includes basic logging. Check the server console for information about:
+- WalletConnect connections
+- Transaction requests
+- API calls
+- Error messages
 
 ## 🤝 Contributing
 
-This is a reference implementation. Feel free to:
-- Fork and modify for your own projects
-- Submit issues for bugs or improvements
-- Contribute documentation or code improvements
+This is a learning project. Feel free to:
+- Fork and modify for your own use
+- Report bugs or suggest improvements
+- Contribute documentation or code changes
 
 ## 📄 License
 
 MIT License - see LICENSE file for details.
 
-## 🙏 Acknowledgments
+## 🙏 Thanks
 
 - [XRPL.js](https://xrpl.org/docs/xrpljs/) for XRPL integration
 - [WalletConnect v2](https://docs.walletconnect.com/) for the connection protocol
