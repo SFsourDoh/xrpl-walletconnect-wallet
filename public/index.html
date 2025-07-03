@@ -228,18 +228,22 @@
 
         .status-indicator {
             display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
             margin-right: 8px;
+            font-weight: 500;
+            text-transform: uppercase;
         }
 
         .status-indicator.required {
             background-color: #dc3545;
+            color: white;
         }
 
         .status-indicator.optional {
             background-color: #6c757d;
+            color: white;
         }
 
 
@@ -1429,15 +1433,29 @@
             
             const label = document.createElement('label');
             const statusIndicator = document.createElement('span');
-            statusIndicator.className = `status-indicator ${field.required === 0 ? 'optional' : 'required'}`;
+            statusIndicator.className = `status-indicator ${field.required === 0 ? 'required' : 'optional'}`;
+            statusIndicator.textContent = field.required === 0 ? 'Required' : 'Optional';
             label.appendChild(statusIndicator);
-            label.appendChild(document.createTextNode(`${field.name}${field.required === 0 ? ' (Optional)' : ' (Required)'}`));
+            label.appendChild(document.createTextNode(field.name));
             
             // Description removed for cleaner interface
             
             const input = document.createElement('input');
             input.type = 'text';
             input.id = `field_${field.name}`;
+            
+            // Add helpful placeholders for different field types
+            if (field.type === 'Blob') {
+                input.placeholder = 'Enter hexadecimal string (e.g., 0123456789ABCDEF)';
+            } else if (field.type === 'AccountID') {
+                input.placeholder = 'Enter XRPL address (e.g., rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh)';
+            } else if (field.type === 'Hash128' || field.type === 'Hash160' || field.type === 'Hash192' || field.type === 'Hash256') {
+                input.placeholder = 'Enter hash value (hexadecimal)';
+            } else if (field.type === 'Amount') {
+                input.placeholder = 'Enter amount (e.g., 1000000 for 1 XRP)';
+            } else if (field.type === 'Currency') {
+                input.placeholder = 'Enter currency code (e.g., USD, EUR, or hex)';
+            }
             
             // Add field type information as data attribute
             const fieldType = fieldTypes.find(ft => ft[0] === field.name);
@@ -1460,7 +1478,33 @@
             if (field.type) {
                 const typeBadge = document.createElement('div');
                 typeBadge.className = 'field-type-badge';
-                typeBadge.textContent = field.type;
+                
+                // Convert field types to more user-friendly names
+                const typeMapping = {
+                    'Blob': 'Hex',
+                    'AccountID': 'Address',
+                    'Hash128': 'Hash128',
+                    'Hash160': 'Hash160', 
+                    'Hash192': 'Hash192',
+                    'Hash256': 'Hash256',
+                    'UInt8': 'UInt8',
+                    'UInt16': 'UInt16',
+                    'UInt32': 'UInt32',
+                    'UInt64': 'UInt64',
+                    'Amount': 'Amount',
+                    'Currency': 'Currency',
+                    'Issue': 'Issue',
+                    'Number': 'Number',
+                    'PathSet': 'PathSet',
+                    'STArray': 'Array',
+                    'STObject': 'Object',
+                    'Vector256': 'Vector256',
+                    'XChainBridge': 'XChainBridge',
+                    'Unknown': 'Unknown'
+                };
+                
+                const displayType = typeMapping[field.type] || field.type;
+                typeBadge.textContent = displayType;
                 fieldDiv.appendChild(typeBadge);
             }
             
@@ -1497,10 +1541,31 @@
                     } else if (fieldType === 'Amount') {
                         // Keep as string for amounts
                         convertedValue = value;
+                    } else if (fieldType === 'Blob') {
+                        // Ensure Blob fields are valid hex strings
+                        if (value && !/^[0-9A-Fa-f]*$/.test(value)) {
+                            showStatus(`Field ${field.name} must be a valid hexadecimal string`, 'error');
+                            return;
+                        }
+                        convertedValue = value;
+                    } else if (fieldType === 'AccountID') {
+                        // Validate XRPL address format
+                        if (value && !/^r[a-km-zA-HJ-NP-Z1-9]{25,34}$/.test(value)) {
+                            showStatus(`Field ${field.name} must be a valid XRPL address`, 'error');
+                            return;
+                        }
+                        convertedValue = value;
+                    } else if (fieldType === 'Hash128' || fieldType === 'Hash160' || fieldType === 'Hash192' || fieldType === 'Hash256') {
+                        // Validate hash format (hexadecimal)
+                        if (value && !/^[0-9A-Fa-f]*$/.test(value)) {
+                            showStatus(`Field ${field.name} must be a valid hexadecimal hash`, 'error');
+                            return;
+                        }
+                        convertedValue = value;
                     }
                     
                     transaction[field.name] = convertedValue;
-                } else if (field.required === 0) {
+                } else if (field.required === 1) {
                     // Optional field, skip if empty
                 } else {
                     showStatus(`Required field ${field.name} is missing`, 'error');

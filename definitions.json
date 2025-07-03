@@ -3183,749 +3183,984 @@
     "AMMBid": [
       {
         "name": "Asset",
-        "required": 0
+        "required": 0,
+        "type": "Issue"
       },
       {
         "name": "Asset2",
-        "required": 0
+        "required": 0,
+        "type": "Issue"
       },
       {
         "name": "BidMin",
-        "required": 1
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "BidMax",
-        "required": 1
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "AuthAccounts",
-        "required": 1
+        "required": 0,
+        "type": "STArray"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "AMMClawback": [
       {
         "name": "Holder",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Asset",
-        "required": 0
+        "required": 0,
+        "type": "Issue"
       },
       {
         "name": "Asset2",
-        "required": 0
+        "required": 0,
+        "type": "Issue"
       },
       {
         "name": "Amount",
-        "required": 1
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "AMMCreate": [
       {
         "name": "Amount",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "Amount2",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "TradingFee",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "AMMDelete": [
       {
         "name": "Asset",
-        "required": 0
+        "required": 0,
+        "type": "Issue"
       },
       {
         "name": "Asset2",
-        "required": 0
+        "required": 0,
+        "type": "Issue"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "AMMDeposit": [
       {
         "name": "Asset",
-        "required": 0
+        "required": 0,
+        "type": "Issue"
       },
       {
         "name": "Asset2",
-        "required": 0
+        "required": 0,
+        "type": "Issue"
       },
       {
         "name": "Amount",
-        "required": 1
+        "required": 1,
+        "type": "Amount"
       },
       {
         "name": "Amount2",
-        "required": 1
+        "required": 1,
+        "type": "Amount"
       },
       {
         "name": "EPrice",
-        "required": 1
+        "required": 1,
+        "type": "Amount"
       },
       {
         "name": "LPTokenOut",
-        "required": 1
+        "required": 1,
+        "type": "Amount"
       },
       {
         "name": "TradingFee",
-        "required": 1
+        "required": 1,
+        "type": "UInt16"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "AMMVote": [
       {
         "name": "Asset",
-        "required": 0
+        "required": 0,
+        "type": "Issue"
       },
       {
         "name": "Asset2",
-        "required": 0
+        "required": 0,
+        "type": "Issue"
       },
       {
         "name": "TradingFee",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "AMMWithdraw": [
       {
         "name": "Asset",
-        "required": 0
+        "required": 0,
+        "type": "Issue"
       },
       {
         "name": "Asset2",
-        "required": 0
+        "required": 0,
+        "type": "Issue"
       },
       {
         "name": "Amount",
-        "required": 1
+        "required": 1,
+        "type": "Amount"
       },
       {
         "name": "Amount2",
-        "required": 1
+        "required": 1,
+        "type": "Amount"
       },
       {
         "name": "EPrice",
-        "required": 1
+        "required": 1,
+        "type": "Amount"
       },
       {
         "name": "LPTokenIn",
-        "required": 1
+        "required": 1,
+        "type": "Amount"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "AccountDelete": [
       {
         "name": "Destination",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "DestinationTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "CredentialIDs",
-        "required": 1
+        "required": 1,
+        "type": "Vector256"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "AccountSet": [
       {
         "name": "EmailHash",
-        "required": 0,
+        "required": 1,
         "type": "Hash128",
         "category": "account_info"
       },
       {
         "name": "WalletLocator",
-        "required": 0,
-        "type": "Hash256", 
+        "required": 1,
+        "type": "Hash256",
         "category": "account_info"
       },
       {
         "name": "WalletSize",
-        "required": 0,
+        "required": 1,
         "type": "UInt32",
         "category": "account_info"
       },
       {
         "name": "MessageKey",
-        "required": 0,
+        "required": 1,
         "type": "Blob",
         "category": "account_info"
       },
       {
         "name": "Domain",
-        "required": 0,
+        "required": 1,
         "type": "Blob",
         "category": "account_info"
       },
       {
         "name": "TransferRate",
-        "required": 0,
+        "required": 1,
         "type": "UInt32",
         "category": "account_info"
       },
       {
         "name": "SetFlag",
-        "required": 0,
+        "required": 1,
         "type": "UInt32",
         "category": "flags",
-        "valid_values": [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 33554432, 67108864, 134217728, 268435456, 536870912, 1073741824, 2147483648]
+        "valid_values": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256,
+          512,
+          1024,
+          2048,
+          4096,
+          8192,
+          16384,
+          32768,
+          65536,
+          131072,
+          262144,
+          524288,
+          1048576,
+          2097152,
+          4194304,
+          8388608,
+          16777216,
+          33554432,
+          67108864,
+          134217728,
+          268435456,
+          536870912,
+          1073741824,
+          2147483648
+        ]
       },
       {
         "name": "ClearFlag",
-        "required": 0,
+        "required": 1,
         "type": "UInt32",
         "category": "flags",
-        "valid_values": [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 33554432, 67108864, 134217728, 268435456, 536870912, 1073741824, 2147483648]
+        "valid_values": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256,
+          512,
+          1024,
+          2048,
+          4096,
+          8192,
+          16384,
+          32768,
+          65536,
+          131072,
+          262144,
+          524288,
+          1048576,
+          2097152,
+          4194304,
+          8388608,
+          16777216,
+          33554432,
+          67108864,
+          134217728,
+          268435456,
+          536870912,
+          1073741824,
+          2147483648
+        ]
       },
       {
         "name": "TickSize",
-        "required": 0,
+        "required": 1,
         "type": "UInt8",
         "category": "account_info",
         "min_value": 0,
@@ -3933,7 +4168,7 @@
       },
       {
         "name": "NFTokenMinter",
-        "required": 0,
+        "required": 1,
         "type": "AccountID",
         "category": "nft"
       }
@@ -3941,2535 +4176,3153 @@
     "Batch": [
       {
         "name": "RawTransactions",
-        "required": 0
+        "required": 0,
+        "type": "STArray"
       },
       {
         "name": "BatchSigners",
-        "required": 1
+        "required": 0,
+        "type": "STArray"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "CheckCancel": [
       {
         "name": "CheckID",
-        "required": 0
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "CheckCash": [
       {
         "name": "CheckID",
-        "required": 0
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "Amount",
-        "required": 1
+        "required": 1,
+        "type": "Amount"
       },
       {
         "name": "DeliverMin",
-        "required": 1
+        "required": 1,
+        "type": "Amount"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "CheckCreate": [
       {
         "name": "Destination",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "SendMax",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "Expiration",
-        "required": 1
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "DestinationTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "InvoiceID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "Clawback": [
       {
         "name": "Amount",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "Holder",
-        "required": 1
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "CredentialAccept": [
       {
         "name": "Issuer",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "CredentialType",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "CredentialCreate": [
       {
         "name": "Subject",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "CredentialType",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "Expiration",
-        "required": 1
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "URI",
-        "required": 1
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "CredentialDelete": [
       {
         "name": "Subject",
-        "required": 1
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Issuer",
-        "required": 1
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "CredentialType",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "DIDDelete": [
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "DIDSet": [
       {
         "name": "DIDDocument",
-        "required": 1
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "URI",
-        "required": 1
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "Data",
-        "required": 1
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "DelegateSet": [
       {
         "name": "Authorize",
-        "required": 0
+        "required": 1,
+        "type": "AccountID"
       },
       {
         "name": "Permissions",
-        "required": 0
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "DepositPreauth": [
       {
         "name": "Authorize",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       },
       {
         "name": "Unauthorize",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       },
       {
         "name": "AuthorizeCredentials",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "UnauthorizeCredentials",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "EnableAmendment": [
       {
         "name": "LedgerSequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "Amendment",
-        "required": 0
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "EscrowCancel": [
       {
         "name": "Owner",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "OfferSequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "EscrowCreate": [
       {
         "name": "Destination",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Amount",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "Condition",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "CancelAfter",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "FinishAfter",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "DestinationTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "EscrowFinish": [
       {
         "name": "Owner",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "OfferSequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "Fulfillment",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Condition",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "CredentialIDs",
-        "required": 1
+        "required": 1,
+        "type": "Vector256"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "LedgerStateFix": [
       {
         "name": "LedgerFixType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Owner",
-        "required": 1
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "MPTokenAuthorize": [
       {
         "name": "MPTokenIssuanceID",
-        "required": 0
+        "required": 0,
+        "type": "Hash192"
       },
       {
         "name": "Holder",
-        "required": 1
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "MPTokenIssuanceCreate": [
       {
         "name": "AssetScale",
-        "required": 1
+        "required": 0,
+        "type": "UInt8"
       },
       {
         "name": "TransferFee",
-        "required": 1
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "MaximumAmount",
-        "required": 1
+        "required": 0,
+        "type": "UInt64"
       },
       {
         "name": "MPTokenMetadata",
-        "required": 1
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "MPTokenIssuanceDestroy": [
       {
         "name": "MPTokenIssuanceID",
-        "required": 0
+        "required": 0,
+        "type": "Hash192"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "MPTokenIssuanceSet": [
       {
         "name": "MPTokenIssuanceID",
-        "required": 0
+        "required": 0,
+        "type": "Hash192"
       },
       {
         "name": "Holder",
-        "required": 1
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "NFTokenAcceptOffer": [
       {
         "name": "NFTokenBuyOffer",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "NFTokenSellOffer",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "NFTokenBrokerFee",
-        "required": 1
+        "required": 1,
+        "type": "Amount"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "NFTokenBurn": [
       {
         "name": "NFTokenID",
-        "required": 0
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "Owner",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "NFTokenCancelOffer": [
       {
         "name": "NFTokenOffers",
-        "required": 0
+        "required": 0,
+        "type": "Vector256"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "NFTokenCreateOffer": [
       {
         "name": "NFTokenID",
-        "required": 0
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Amount",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "Destination",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       },
       {
         "name": "Owner",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       },
       {
         "name": "Expiration",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "NFTokenMint": [
       {
         "name": "NFTokenTaxon",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "TransferFee",
-        "required": 1
+        "required": 1,
+        "type": "UInt16"
       },
       {
         "name": "Issuer",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       },
       {
         "name": "URI",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Amount",
-        "required": 1
+        "required": 1,
+        "type": "Amount"
       },
       {
         "name": "Destination",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       },
       {
         "name": "Expiration",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "NFTokenModify": [
       {
         "name": "NFTokenID",
-        "required": 0
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "Owner",
-        "required": 1
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "URI",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "OfferCancel": [
       {
         "name": "OfferSequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "OfferCreate": [
       {
         "name": "TakerPays",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "TakerGets",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "Expiration",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "OfferSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "DomainID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "OracleDelete": [
       {
         "name": "OracleDocumentID",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "OracleSet": [
       {
         "name": "OracleDocumentID",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "Provider",
-        "required": 1
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "URI",
-        "required": 1
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "AssetClass",
-        "required": 1
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "LastUpdateTime",
-        "required": 0
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "PriceDataSeries",
-        "required": 0
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "Payment": [
@@ -6499,7 +7352,7 @@
       },
       {
         "name": "Paths",
-        "required": 2,
+        "required": 1,
         "type": "PathSet",
         "description": "Array of payment paths to be used for this transaction",
         "example": [],
@@ -6639,2169 +7492,2698 @@
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "PaymentChannelClaim": [
       {
         "name": "Channel",
-        "required": 0
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "Amount",
-        "required": 1
+        "required": 1,
+        "type": "Amount"
       },
       {
         "name": "Balance",
-        "required": 1
+        "required": 1,
+        "type": "Amount"
       },
       {
         "name": "Signature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "PublicKey",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "CredentialIDs",
-        "required": 1
+        "required": 1,
+        "type": "Vector256"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "PaymentChannelCreate": [
       {
         "name": "Destination",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Amount",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "SettleDelay",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PublicKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "CancelAfter",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "DestinationTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "PaymentChannelFund": [
       {
         "name": "Channel",
-        "required": 0
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "Amount",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "Expiration",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "PermissionedDomainDelete": [
       {
         "name": "DomainID",
-        "required": 0
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "PermissionedDomainSet": [
       {
         "name": "DomainID",
-        "required": 1
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "AcceptedCredentials",
-        "required": 0
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "SetFee": [
       {
         "name": "LedgerSequence",
-        "required": 1
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "BaseFee",
-        "required": 1
+        "required": 0,
+        "type": "UInt64"
       },
       {
         "name": "ReferenceFeeUnits",
-        "required": 1
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "ReserveBase",
-        "required": 1
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "ReserveIncrement",
-        "required": 1
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "BaseFeeDrops",
-        "required": 1
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "ReserveBaseDrops",
-        "required": 1
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "ReserveIncrementDrops",
-        "required": 1
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "SetRegularKey": [
       {
         "name": "RegularKey",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "SignerListSet": [
       {
         "name": "SignerQuorum",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "SignerEntries",
-        "required": 1
+        "required": 0,
+        "type": "STArray"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "TicketCreate": [
       {
         "name": "TicketCount",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "TrustSet": [
       {
         "name": "LimitAmount",
-        "required": 1
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "QualityIn",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "QualityOut",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "UNLModify": [
       {
         "name": "UNLModifyDisabling",
-        "required": 0
+        "required": 0,
+        "type": "UInt8"
       },
       {
         "name": "LedgerSequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "UNLModifyValidator",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "VaultClawback": [
       {
         "name": "VaultID",
-        "required": 0
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "Holder",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Amount",
-        "required": 1
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "VaultCreate": [
       {
         "name": "Asset",
-        "required": 0
+        "required": 0,
+        "type": "Issue"
       },
       {
         "name": "AssetsMaximum",
-        "required": 1
+        "required": 0,
+        "type": "Number"
       },
       {
         "name": "MPTokenMetadata",
-        "required": 1
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "DomainID",
-        "required": 1
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "WithdrawalPolicy",
-        "required": 1
+        "required": 0,
+        "type": "UInt8"
       },
       {
         "name": "Data",
-        "required": 1
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "VaultDelete": [
       {
         "name": "VaultID",
-        "required": 0
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "VaultDeposit": [
       {
         "name": "VaultID",
-        "required": 0
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "Amount",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "VaultSet": [
       {
         "name": "VaultID",
-        "required": 0
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "AssetsMaximum",
-        "required": 1
+        "required": 0,
+        "type": "Number"
       },
       {
         "name": "DomainID",
-        "required": 1
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "Data",
-        "required": 1
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "VaultWithdraw": [
       {
         "name": "VaultID",
-        "required": 0
+        "required": 0,
+        "type": "Hash256"
       },
       {
         "name": "Amount",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "Destination",
-        "required": 1
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "XChainAccountCreateCommit": [
       {
         "name": "XChainBridge",
-        "required": 0
+        "required": 0,
+        "type": "XChainBridge"
       },
       {
         "name": "Destination",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Amount",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "SignatureReward",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "XChainAddAccountCreateAttestation": [
       {
         "name": "XChainBridge",
-        "required": 0
+        "required": 0,
+        "type": "XChainBridge"
       },
       {
         "name": "AttestationSignerAccount",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "PublicKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "Signature",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "OtherChainSource",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Amount",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "AttestationRewardAccount",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "WasLockingChainSend",
-        "required": 0
+        "required": 0,
+        "type": "UInt8"
       },
       {
         "name": "XChainAccountCreateCount",
-        "required": 0
+        "required": 0,
+        "type": "UInt64"
       },
       {
         "name": "Destination",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "SignatureReward",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "XChainAddClaimAttestation": [
       {
         "name": "XChainBridge",
-        "required": 0
+        "required": 0,
+        "type": "XChainBridge"
       },
       {
         "name": "AttestationSignerAccount",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "PublicKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "Signature",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "OtherChainSource",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Amount",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "AttestationRewardAccount",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "WasLockingChainSend",
-        "required": 0
+        "required": 0,
+        "type": "UInt8"
       },
       {
         "name": "XChainClaimID",
-        "required": 0
+        "required": 0,
+        "type": "UInt64"
       },
       {
         "name": "Destination",
-        "required": 1
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "XChainClaim": [
       {
         "name": "XChainBridge",
-        "required": 0
+        "required": 0,
+        "type": "XChainBridge"
       },
       {
         "name": "XChainClaimID",
-        "required": 0
+        "required": 0,
+        "type": "UInt64"
       },
       {
         "name": "Destination",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "DestinationTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Amount",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "XChainCommit": [
       {
         "name": "XChainBridge",
-        "required": 0
+        "required": 0,
+        "type": "XChainBridge"
       },
       {
         "name": "XChainClaimID",
-        "required": 0
+        "required": 0,
+        "type": "UInt64"
       },
       {
         "name": "Amount",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OtherChainDestination",
-        "required": 1
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "XChainCreateBridge": [
       {
         "name": "XChainBridge",
-        "required": 0
+        "required": 0,
+        "type": "XChainBridge"
       },
       {
         "name": "SignatureReward",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "MinAccountCreateAmount",
-        "required": 1
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "XChainCreateClaimID": [
       {
         "name": "XChainBridge",
-        "required": 0
+        "required": 0,
+        "type": "XChainBridge"
       },
       {
         "name": "SignatureReward",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OtherChainSource",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ],
     "XChainModifyBridge": [
       {
         "name": "XChainBridge",
-        "required": 0
+        "required": 0,
+        "type": "XChainBridge"
       },
       {
         "name": "SignatureReward",
-        "required": 1
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "MinAccountCreateAmount",
-        "required": 1
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "TransactionType",
-        "required": 0
+        "required": 0,
+        "type": "UInt16"
       },
       {
         "name": "Flags",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "SourceTag",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Account",
-        "required": 0
+        "required": 0,
+        "type": "AccountID"
       },
       {
         "name": "Sequence",
-        "required": 0
+        "required": 0,
+        "type": "UInt32"
       },
       {
         "name": "PreviousTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "LastLedgerSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "AccountTxnID",
-        "required": 1
+        "required": 1,
+        "type": "Hash256"
       },
       {
         "name": "Fee",
-        "required": 0
+        "required": 0,
+        "type": "Amount"
       },
       {
         "name": "OperationLimit",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Memos",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "SigningPubKey",
-        "required": 0
+        "required": 0,
+        "type": "Blob"
       },
       {
         "name": "TicketSequence",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "TxnSignature",
-        "required": 1
+        "required": 1,
+        "type": "Blob"
       },
       {
         "name": "Signers",
-        "required": 1
+        "required": 1,
+        "type": "STArray"
       },
       {
         "name": "NetworkID",
-        "required": 1
+        "required": 1,
+        "type": "UInt32"
       },
       {
         "name": "Delegate",
-        "required": 1
+        "required": 1,
+        "type": "AccountID"
       }
     ]
   },
