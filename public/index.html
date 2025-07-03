@@ -628,6 +628,15 @@
             console.log('showPendingRequest called with:', type, request);
             console.log('Full request structure:', JSON.stringify(request, null, 2));
             
+            // Add more detailed logging for debugging
+            if (type === 'connection') {
+                console.log('Connection request details:');
+                console.log('- Proposer name:', request.proposal.params.proposer.metadata.name);
+                console.log('- Proposer URL:', request.proposal.params.proposer.metadata.url);
+                console.log('- Required namespaces:', request.proposal.params.requiredNamespaces);
+                console.log('- Optional namespaces:', request.proposal.params.optionalNamespaces);
+            }
+            
             // Clear any existing pending request first
             if (currentPendingRequest) {
                 console.log('Clearing existing pending request:', currentPendingRequest.type);
@@ -640,15 +649,19 @@
             const details = document.getElementById('pendingRequestDetails');
             
             if (type === 'connection') {
+                const xrplNamespace = request.proposal.params.optionalNamespaces.xrpl || request.proposal.params.requiredNamespaces.xrpl;
+                const methods = xrplNamespace ? xrplNamespace.methods.join(', ') : 'None specified';
+                const chains = xrplNamespace ? xrplNamespace.chains.map(chain => 
+                    chain === 'xrpl:0' ? 'Mainnet (xrpl:0)' : 
+                    chain === 'xrpl:1' ? 'Testnet (xrpl:1)' : chain
+                ).join(', ') : 'None specified';
+                
                 details.innerHTML = `
                     <p><strong>Connection Request from:</strong></p>
                     <p>• App: ${request.proposal.params.proposer.metadata.name || 'Unknown'}</p>
                     <p>• URL: ${request.proposal.params.proposer.metadata.url || 'Unknown'}</p>
-                    <p>• Methods: ${request.proposal.params.requiredNamespaces.xrpl.methods.join(', ')}</p>
-                    <p>• Chain: ${request.proposal.params.requiredNamespaces.xrpl.chains.map(chain => 
-                        chain === 'xrpl:0' ? 'Mainnet (xrpl:0)' : 
-                        chain === 'xrpl:1' ? 'Testnet (xrpl:1)' : chain
-                    ).join(', ')}</p>
+                    <p>• Methods: ${methods}</p>
+                    <p>• Chain: ${chains}</p>
                 `;
             } else if (type === 'transaction') {
                 const chainId = request.request.params.chainId;

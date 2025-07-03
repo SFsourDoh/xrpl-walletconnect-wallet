@@ -626,8 +626,13 @@ app.post('/api/walletconnect/approve-connection', async (req, res) => {
     
     console.log('=== MANUAL CONNECTION APPROVAL ===');
     
-    // Use the chain ID from the proposal
-    const requestedChain = proposal.params.requiredNamespaces.xrpl.chains[0];
+    // Use the chain ID from the proposal (check both required and optional namespaces)
+    const xrplNamespace = proposal.params.optionalNamespaces.xrpl || proposal.params.requiredNamespaces.xrpl;
+    if (!xrplNamespace || !xrplNamespace.chains || xrplNamespace.chains.length === 0) {
+      throw new Error('No XRPL chains found in proposal');
+    }
+    
+    const requestedChain = xrplNamespace.chains[0];
     const xrplAddress = currentWalletAddress || 'rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh';
     const accountString = `${requestedChain}:${xrplAddress}`;
     
@@ -638,7 +643,7 @@ app.post('/api/walletconnect/approve-connection', async (req, res) => {
       namespaces: {
         xrpl: {
           accounts: [accountString],
-          methods: proposal.params.requiredNamespaces.xrpl.methods,
+          methods: xrplNamespace.methods || [],
           events: []
         }
       }
