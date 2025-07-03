@@ -957,6 +957,420 @@ async function initializeWalletConnect() {
   }
 }
 
+// ============================================================================
+// Transaction Definitions API
+// ============================================================================
+
+/**
+ * Load transaction definitions from the definitions.json file
+ * Returns available transaction types and their field definitions
+ */
+app.get('/api/transaction-definitions', (req, res) => {
+  try {
+    const fs = require('fs');
+    const definitions = JSON.parse(fs.readFileSync('./definitions.json', 'utf8'));
+    
+    // Extract transaction types and their field definitions
+    const transactionTypes = definitions.TRANSACTION_TYPES;
+    const transactionFields = {};
+    
+    // Get field definitions for each transaction type
+    Object.keys(transactionTypes).forEach(txType => {
+      if (definitions[txType]) {
+        transactionFields[txType] = definitions[txType];
+      }
+    });
+    
+    // Get field type definitions
+    const fieldTypes = definitions.FIELDS;
+    const types = definitions.TYPES;
+    
+    res.json({
+      success: true,
+      transactionTypes,
+      transactionFields,
+      fieldTypes,
+      types
+    });
+  } catch (error) {
+    console.error('Error loading transaction definitions:', error);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
+/**
+ * Get field information for a specific transaction type
+ */
+app.get('/api/transaction-definitions/:transactionType', (req, res) => {
+  try {
+    console.log('=== TRANSACTION DEFINITIONS REQUEST ===');
+    console.log('Requested transaction type:', req.params.transactionType);
+    
+    const fs = require('fs');
+    const definitions = JSON.parse(fs.readFileSync('./definitions.json', 'utf8'));
+    const transactionType = req.params.transactionType;
+
+    console.log('Available keys in definitions:', Object.keys(definitions).slice(0, 10), '...');
+    console.log('Transaction types available:', Object.keys(definitions.TRANSACTION_TYPES).slice(0, 10), '...');
+
+    // Try exact match first in TRANSACTION_FORMATS
+    let fields = definitions.TRANSACTION_FORMATS[transactionType];
+    console.log('Exact match result:', fields ? 'FOUND' : 'NOT FOUND');
+
+    // If not found, try case-insensitive match in TRANSACTION_FORMATS
+    if (!fields) {
+      const key = Object.keys(definitions.TRANSACTION_FORMATS).find(
+        k => k.toLowerCase() === transactionType.toLowerCase()
+      );
+      console.log('Case-insensitive match key:', key);
+      if (key) fields = definitions.TRANSACTION_FORMATS[key];
+    }
+
+    // If still not found, use empty array
+    if (!fields) {
+      console.log('No fields found, using empty array');
+      fields = [];
+    }
+
+    console.log(`Raw fields for ${transactionType}:`, fields);
+    console.log('Fields type:', typeof fields);
+    console.log('Fields is array:', Array.isArray(fields));
+    console.log('Fields length:', Array.isArray(fields) ? fields.length : 'N/A');
+
+    const fieldTypes = definitions.FIELDS;
+    const types = definitions.TYPES;
+
+    // Get common fields from the new COMMON_FIELDS section
+    const commonFields = definitions.COMMON_FIELDS || {};
+    
+    // Keep transaction-specific fields separate from common fields
+    let transactionSpecificFields = [];
+    let commonFieldsArray = [];
+    
+    if (Array.isArray(fields)) {
+      // Filter out common fields from transaction-specific fields
+      transactionSpecificFields = fields.filter(field => {
+        const isCommon = Object.keys(commonFields).includes(field.name);
+        if (isCommon) {
+          // Add to common fields array if not already there
+          const exists = commonFieldsArray.some(cf => cf.name === field.name);
+          if (!exists) {
+            commonFieldsArray.push({
+              name: field.name,
+              ...commonFields[field.name]
+            });
+          }
+        }
+        return !isCommon;
+      });
+    } else {
+      // Ensure we always have arrays, even if fields is not an array
+      transactionSpecificFields = [];
+      commonFieldsArray = [];
+    }
+    
+    // Add remaining common fields that weren't in the transaction-specific fields
+    Object.keys(commonFields).forEach(commonFieldName => {
+      const exists = commonFieldsArray.some(field => field.name === commonFieldName);
+      if (!exists) {
+        commonFieldsArray.push({
+          name: commonFieldName,
+          ...commonFields[commonFieldName]
+        });
+      }
+    });
+    
+    // Ensure we always return arrays
+    if (!Array.isArray(transactionSpecificFields)) {
+      transactionSpecificFields = [];
+    }
+    if (!Array.isArray(commonFieldsArray)) {
+      commonFieldsArray = [];
+    }
+
+    console.log('Transaction-specific fields length:', transactionSpecificFields.length);
+    console.log('Common fields length:', commonFieldsArray.length);
+    console.log('Transaction-specific fields:', transactionSpecificFields);
+    console.log('Common fields:', commonFieldsArray);
+    console.log('Transaction-specific fields type:', typeof transactionSpecificFields);
+    console.log('Transaction-specific fields is array:', Array.isArray(transactionSpecificFields));
+    console.log('Common fields type:', typeof commonFieldsArray);
+    console.log('Common fields is array:', Array.isArray(commonFieldsArray));
+
+    const response = {
+      success: true,
+      transactionType,
+      transactionSpecificFields: transactionSpecificFields,
+      commonFields: commonFieldsArray,
+      fieldTypes,
+      types
+    };
+    
+    console.log('Response being sent:', JSON.stringify(response, null, 2));
+
+    res.json(response);
+  } catch (error) {
+    console.error('Error loading transaction field definitions:', error);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
+/**
+ * Sign a transaction with the provided wallet seed
+ */
+app.post('/api/sign-transaction', async (req, res) => {
+  try {
+    const { transaction, walletSeed } = req.body;
+    
+    if (!transaction) {
+      return res.status(400).json({
+        success: false,
+        error: 'Transaction is required'
+      });
+    }
+    
+    if (!walletSeed) {
+      return res.status(400).json({
+        success: false,
+        error: 'Wallet seed is required'
+      });
+    }
+    
+    console.log('=== SIGNING TRANSACTION ===');
+    console.log('Transaction to sign:', JSON.stringify(transaction, null, 2));
+    console.log('Using wallet seed:', walletSeed.substring(0, 10) + '...');
+    
+    // Create wallet instance from seed
+    const walletInstance = xrpl.Wallet.fromSeed(walletSeed);
+    console.log('Wallet instance created from seed');
+    
+    // Prepare the transaction for signing (add missing fields if needed)
+    const txToSign = {
+      ...transaction,
+      Fee: transaction.Fee || '12',
+      Sequence: transaction.Sequence || await getAccountSequence(walletInstance.address)
+    };
+    
+    console.log('Transaction prepared for signing:', JSON.stringify(txToSign, null, 2));
+    
+    // Auto-fill missing fields
+    const preparedTx = await client.autofill(txToSign);
+    console.log('Transaction auto-filled:', JSON.stringify(preparedTx, null, 2));
+    
+    // Sign the transaction
+    const signedTx = walletInstance.sign(preparedTx);
+    
+    console.log('Transaction signed successfully:', signedTx);
+    
+    res.json({
+      success: true,
+      signedTransaction: signedTx
+    });
+  } catch (error) {
+    console.error('Error signing transaction:', error);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
+/**
+ * Get auto-fill values for transaction fields
+ */
+app.get('/api/transaction-autofill/:address', async (req, res) => {
+  try {
+    const { address } = req.params;
+    if (!address) {
+      return res.status(400).json({ success: false, error: 'Wallet address is required' });
+    }
+
+    // Get current ledger index
+    const ledgerInfo = await client.request({ command: 'ledger_current' });
+    const lastLedgerSequence = ledgerInfo.result.ledger_current_index + 20;
+
+    // Get account sequence
+    const accountInfo = await client.request({
+      command: 'account_info',
+      account: address,
+      ledger_index: 'validated'
+    });
+    const sequence = accountInfo.result.account_data.Sequence;
+
+    // Get fee (in drops)
+    const serverInfo = await client.request({ command: 'server_info' });
+    const baseFeeXRP = serverInfo.result.info.validated_ledger.base_fee_xrp;
+    const fee = (parseFloat(baseFeeXRP) * 1_000_000).toString();
+
+    res.json({
+      success: true,
+      autofill: {
+        Fee: fee,
+        Sequence: sequence,
+        LastLedgerSequence: lastLedgerSequence
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+/**
+ * Submit a signed transaction to the network and wait for validation
+ */
+app.post('/api/submit-transaction', async (req, res) => {
+  try {
+    const { signedTransaction } = req.body;
+    
+    if (!signedTransaction) {
+      return res.status(400).json({
+        success: false,
+        error: 'Signed transaction is required'
+      });
+    }
+    
+    console.log('=== SUBMITTING TRANSACTION ===');
+    console.log('Signed transaction:', JSON.stringify(signedTransaction, null, 2));
+    
+    // Submit the transaction and wait for validation
+    const submitResult = await client.submitAndWait(signedTransaction.tx_blob);
+    
+    console.log('Transaction validation result:', JSON.stringify(submitResult, null, 2));
+    
+    if (submitResult.result.meta.TransactionResult === 'tesSUCCESS') {
+      res.json({
+        success: true,
+        hash: submitResult.result.hash,
+        ledgerIndex: submitResult.result.ledger_index,
+        validated: true,
+        engineResult: submitResult.result.meta.TransactionResult,
+        message: 'Transaction validated successfully in ledger',
+        timestamp: new Date().toISOString()
+      });
+    } else {
+      res.json({
+        success: false,
+        error: `Transaction failed: ${submitResult.result.meta.TransactionResult}`,
+        engineResult: submitResult.result.meta.TransactionResult,
+        ledgerIndex: submitResult.result.ledger_index,
+        validated: true
+      });
+    }
+  } catch (error) {
+    console.error('Error submitting transaction:', error);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
+/**
+ * Submit a signed transaction to the network (non-blocking)
+ */
+app.post('/api/submit-transaction-async', async (req, res) => {
+  try {
+    const { signedTransaction } = req.body;
+    
+    if (!signedTransaction) {
+      return res.status(400).json({
+        success: false,
+        error: 'Signed transaction is required'
+      });
+    }
+    
+    console.log('=== SUBMITTING TRANSACTION (ASYNC) ===');
+    console.log('Signed transaction:', JSON.stringify(signedTransaction, null, 2));
+    
+    // Submit the transaction to the network (non-blocking)
+    const submitResult = await client.submit(signedTransaction.tx_blob);
+    
+    console.log('Transaction submission result:', JSON.stringify(submitResult, null, 2));
+    
+    if (submitResult.result.engine_result === 'tesSUCCESS') {
+      res.json({
+        success: true,
+        hash: submitResult.result.tx_json.hash,
+        engineResult: submitResult.result.engine_result,
+        message: 'Transaction submitted successfully',
+        status: 'submitted'
+      });
+    } else {
+      res.json({
+        success: false,
+        error: `Transaction failed: ${submitResult.result.engine_result_message}`,
+        engineResult: submitResult.result.engine_result,
+        engineResultMessage: submitResult.result.engine_result_message
+      });
+    }
+  } catch (error) {
+    console.error('Error submitting transaction:', error);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
+/**
+ * Check transaction status by hash
+ */
+app.get('/api/transaction-status/:hash', async (req, res) => {
+  try {
+    const { hash } = req.params;
+    
+    if (!hash) {
+      return res.status(400).json({
+        success: false,
+        error: 'Transaction hash is required'
+      });
+    }
+    
+    console.log('=== CHECKING TRANSACTION STATUS ===');
+    console.log('Transaction hash:', hash);
+    
+    // Get transaction details
+    const txResult = await client.request({
+      command: 'tx',
+      transaction: hash
+    });
+    
+    console.log('Transaction status result:', JSON.stringify(txResult, null, 2));
+    
+    if (txResult.result.validated) {
+      res.json({
+        success: true,
+        hash: hash,
+        validated: true,
+        ledgerIndex: txResult.result.ledger_index,
+        engineResult: txResult.result.meta.TransactionResult,
+        message: 'Transaction validated in ledger',
+        timestamp: new Date().toISOString()
+      });
+    } else {
+      res.json({
+        success: true,
+        hash: hash,
+        validated: false,
+        message: 'Transaction not yet validated',
+        status: 'pending'
+      });
+    }
+  } catch (error) {
+    console.error('Error checking transaction status:', error);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
 // Start server
 async function startServer() {
   await initializeXRPL();

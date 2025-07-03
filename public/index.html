@@ -177,6 +177,188 @@
             color: #6c757d;
             margin-top: 0.25rem;
         }
+
+        /* Transaction Builder Styles */
+        .transaction-builder {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .transaction-builder h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .field-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .field-group .form-group {
+            margin-bottom: 0;
+        }
+
+        .transaction-preview {
+            background: #e9ecef;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .button-group .btn {
+            flex: 1;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .status-indicator.required {
+            background-color: #dc3545;
+        }
+
+        .status-indicator.optional {
+            background-color: #6c757d;
+        }
+
+
+
+        .field-type-badge {
+            display: inline-block;
+            background: #e9ecef;
+            color: #495057;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-top: 5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .field-category {
+            font-size: 0.75rem;
+            color: #007bff;
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+
+        .form-group input[data-auto-filled="true"] {
+            background-color: #f8f9fa;
+            cursor: not-allowed;
+        }
+        
+        .field-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        
+        .field-section h4 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 8px;
+        }
+        
+        .no-fields {
+            color: #666;
+            font-style: italic;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .processing-status {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e9ecef;
+            border-top: 4px solid #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #28a745);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+        
+        .status-details {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 15px;
+            text-align: left;
+            background: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .transaction-success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .transaction-error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
     </style>
 </head>
 <body>
@@ -258,6 +440,91 @@
                 </div>
             </div>
 
+            <!-- Transaction Builder Section -->
+            <div class="section">
+                <h2>🔧 Transaction Builder</h2>
+                <p>Build and sign XRPL transactions using server definitions</p>
+                
+                <div class="form-group">
+                    <label for="transactionType">Transaction Type:</label>
+                    <select id="transactionType" onchange="loadTransactionFields()">
+                        <option value="">Select a transaction type...</option>
+                    </select>
+                </div>
+                
+                <div id="transactionFields" class="hidden transaction-builder">
+                    <h3>📝 Transaction Fields</h3>
+                    <p class="form-text">Fill in the fields for your transaction. Required fields are marked with a red indicator.</p>
+                    
+                    <!-- Transaction-specific fields -->
+                    <div id="transactionSpecificFields" class="field-section">
+                        <h4>🎯 Transaction-Specific Fields</h4>
+                        <div id="specificFieldsContainer"></div>
+                    </div>
+                    
+                    <!-- Common fields -->
+                    <div id="commonFields" class="field-section">
+                        <h4>🔧 Common Fields</h4>
+                        <p class="form-text">Standard XRPL transaction fields. Auto-filled fields are disabled.</p>
+                        <div id="commonFieldsContainer"></div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn btn-secondary" onclick="autofillTransactionFields()" id="autofillBtn">
+                            <span id="autofillBtnText">🔄 Auto-fill Fields</span>
+                        </button>
+                        <button class="btn btn-success" onclick="buildTransaction()" id="buildBtn">
+                            <span id="buildBtnText">🔨 Build Transaction</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="transactionResult" class="hidden transaction-builder">
+                    <h3>📋 Built Transaction</h3>
+                    <p class="form-text">Review your transaction before signing:</p>
+                    <div class="transaction-preview" id="builtTransactionPreview"></div>
+                    <div class="button-group">
+                        <button class="btn" onclick="signTransaction()" id="signBtn">
+                            <span id="signBtnText">✍️ Sign Transaction</span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="editTransaction()" id="editBtn">
+                            <span id="editBtnText">✏️ Edit Transaction</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="signedTransactionResult" class="hidden transaction-builder">
+                    <h3>✅ Signed Transaction</h3>
+                    <p class="form-text">Your transaction has been signed. Review and submit to the network:</p>
+                    <div class="transaction-preview" id="signedTransactionPreview"></div>
+                    <div class="button-group">
+                        <button class="btn btn-secondary" onclick="submitTransaction()" id="submitBtn">
+                            <span id="submitBtnText">🚀 Submit to Network</span>
+                        </button>
+                        <button class="btn" onclick="resetTransactionBuilder()" id="resetBtn">
+                            <span id="resetBtnText">🔄 Start Over</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="transactionProcessingResult" class="hidden transaction-builder">
+                    <h3>⏳ Processing Transaction</h3>
+                    <div class="processing-status">
+                        <div class="spinner"></div>
+                        <p id="processingMessage">Submitting transaction to network...</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="status-details" id="statusDetails"></div>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn btn-secondary" onclick="cancelTransaction()" id="cancelBtn">
+                            <span id="cancelBtnText">❌ Cancel</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <!-- Status Section -->
             <div class="section">
                 <h2>📊 Connection Status</h2>
@@ -310,6 +577,9 @@
             
             // Load existing wallet if available
             checkForExistingWallet();
+            
+            // Load transaction definitions
+            loadTransactionDefinitions();
         });
 
         async function checkConnection() {
@@ -385,6 +655,15 @@
             
             // Check balance
             refreshBalance();
+            
+            // Auto-load AccountSet transaction with wallet address pre-filled
+            setTimeout(() => {
+                loadTransactionDefinitions();
+                setTimeout(() => {
+                    document.getElementById('transactionType').value = 'AccountSet';
+                    loadTransactionFields();
+                }, 500);
+            }, 1000);
         }
 
         async function refreshBalance() {
@@ -928,8 +1207,584 @@
         // Make debug function available globally
         window.debugCurrentState = debugCurrentState;
         
-
+        // ============================================================================
+        // Transaction Builder Functions
+        // ============================================================================
         
+        // Global state for transaction builder
+        let transactionDefinitions = null;
+        let currentTransactionFields = null;
+        let builtTransaction = null;
+        let signedTransaction = null;
+        
+        /**
+         * Load transaction definitions and populate the dropdown
+         */
+        async function loadTransactionDefinitions() {
+            try {
+                const response = await fetch('/api/transaction-definitions');
+                const data = await response.json();
+                
+                if (data.success) {
+                    transactionDefinitions = data;
+                    populateTransactionTypeDropdown(data.transactionTypes);
+                    showStatus('Transaction definitions loaded successfully', 'success');
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                console.error('Error loading transaction definitions:', error);
+                showStatus('Error loading transaction definitions: ' + error.message, 'error');
+            }
+        }
+        
+        /**
+         * Populate the transaction type dropdown
+         */
+        function populateTransactionTypeDropdown(transactionTypes) {
+            const select = document.getElementById('transactionType');
+            
+            // Clear existing options except the first one
+            select.innerHTML = '<option value="">Select a transaction type...</option>';
+            
+            // Add transaction types sorted alphabetically
+            Object.keys(transactionTypes)
+                .sort()
+                .forEach(txType => {
+                    const option = document.createElement('option');
+                    option.value = txType;
+                    option.textContent = txType;
+                    select.appendChild(option);
+                });
+        }
+        
+        /**
+         * Load fields for the selected transaction type
+         */
+        async function loadTransactionFields() {
+            const transactionType = document.getElementById('transactionType').value;
+            
+            if (!transactionType) {
+                document.getElementById('transactionFields').classList.add('hidden');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/transaction-definitions/${transactionType}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Store both field types for transaction building
+                    currentTransactionFields = [...data.transactionSpecificFields, ...data.commonFields];
+                    
+                    displayTransactionFields(data.transactionSpecificFields, data.commonFields, data.fieldTypes);
+                    document.getElementById('transactionFields').classList.remove('hidden');
+                    showStatus(`Loaded ${data.transactionSpecificFields.length} specific fields and ${data.commonFields.length} common fields for ${transactionType}`, 'success');
+                    
+                    // Pre-fill Account field if wallet is available
+                    if (currentWallet) {
+                        setTimeout(() => {
+                            prefillAccountField();
+                            // Auto-fill other fields with network values
+                            autofillTransactionFields();
+                        }, 200);
+                    }
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                console.error('Error loading transaction fields:', error);
+                showStatus('Error loading transaction fields: ' + error.message, 'error');
+            }
+        }
+        
+        /**
+         * Display transaction fields as form inputs
+         */
+        function displayTransactionFields(specificFields, commonFields, fieldTypes) {
+            // Sort fields alphabetically by name
+            const sortedSpecificFields = [...specificFields].sort((a, b) => a.name.localeCompare(b.name));
+            const sortedCommonFields = [...commonFields].sort((a, b) => a.name.localeCompare(b.name));
+            
+            // Display transaction-specific fields
+            const specificContainer = document.getElementById('specificFieldsContainer');
+            specificContainer.innerHTML = '';
+            
+            if (sortedSpecificFields.length === 0) {
+                specificContainer.innerHTML = '<p class="no-fields">No transaction-specific fields for this transaction type.</p>';
+            } else {
+                // Group specific fields into rows of 2 for better layout
+                for (let i = 0; i < sortedSpecificFields.length; i += 2) {
+                    const fieldGroup = document.createElement('div');
+                    fieldGroup.className = 'field-group';
+                    
+                    // First field
+                    const field1 = sortedSpecificFields[i];
+                    const fieldDiv1 = createFieldInput(field1, fieldTypes);
+                    fieldGroup.appendChild(fieldDiv1);
+                    
+                    // Second field (if exists)
+                    if (i + 1 < sortedSpecificFields.length) {
+                        const field2 = sortedSpecificFields[i + 1];
+                        const fieldDiv2 = createFieldInput(field2, fieldTypes);
+                        fieldGroup.appendChild(fieldDiv2);
+                    }
+                    
+                    specificContainer.appendChild(fieldGroup);
+                }
+            }
+            
+            // Display common fields
+            const commonContainer = document.getElementById('commonFieldsContainer');
+            commonContainer.innerHTML = '';
+            
+            if (sortedCommonFields.length === 0) {
+                commonContainer.innerHTML = '<p class="no-fields">No common fields available.</p>';
+            } else {
+                // Group common fields into rows of 2 for better layout
+                for (let i = 0; i < sortedCommonFields.length; i += 2) {
+                    const fieldGroup = document.createElement('div');
+                    fieldGroup.className = 'field-group';
+                    
+                    // First field
+                    const field1 = sortedCommonFields[i];
+                    const fieldDiv1 = createFieldInput(field1, fieldTypes);
+                    fieldGroup.appendChild(fieldDiv1);
+                    
+                    // Second field (if exists)
+                    if (i + 1 < sortedCommonFields.length) {
+                        const field2 = sortedCommonFields[i + 1];
+                        const fieldDiv2 = createFieldInput(field2, fieldTypes);
+                        fieldGroup.appendChild(fieldDiv2);
+                    }
+                    
+                    commonContainer.appendChild(fieldGroup);
+                }
+            }
+            
+            // Pre-fill Account field with wallet address if available
+            setTimeout(() => {
+                prefillAccountField();
+                // Auto-fill other fields with network values
+                autofillTransactionFields();
+            }, 100);
+        }
+        
+        /**
+         * Pre-fill the Account field with the current wallet address
+         */
+        function prefillAccountField() {
+            if (currentWallet) {
+                const accountInput = document.getElementById('field_Account');
+                if (accountInput) {
+                    accountInput.value = currentWallet.address;
+                }
+            }
+        }
+        
+        /**
+         * Auto-fill transaction fields with network values
+         */
+        async function autofillTransactionFields() {
+            if (!currentWallet) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/transaction-autofill/${currentWallet.address}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    const autofill = data.autofill;
+                    
+                    // Auto-fill Fee field
+                    const feeInput = document.getElementById('field_Fee');
+                    if (feeInput) {
+                        feeInput.value = autofill.Fee;
+                    }
+                    
+                    // Auto-fill Sequence field
+                    const sequenceInput = document.getElementById('field_Sequence');
+                    if (sequenceInput) {
+                        sequenceInput.value = autofill.Sequence;
+                    }
+                    
+                    // Auto-fill LastLedgerSequence field
+                    const lastLedgerInput = document.getElementById('field_LastLedgerSequence');
+                    if (lastLedgerInput) {
+                        lastLedgerInput.value = autofill.LastLedgerSequence;
+                    }
+                    
+                    showStatus('Auto-filled transaction fields with network values', 'success');
+                } else {
+                    console.error('Failed to get auto-fill values:', data.error);
+                }
+            } catch (error) {
+                console.error('Error auto-filling fields:', error);
+            }
+        }
+        
+        /**
+         * Create a field input element
+         */
+        function createFieldInput(field, fieldTypes) {
+            const fieldDiv = document.createElement('div');
+            fieldDiv.className = 'form-group';
+            
+            const label = document.createElement('label');
+            const statusIndicator = document.createElement('span');
+            statusIndicator.className = `status-indicator ${field.required === 0 ? 'optional' : 'required'}`;
+            label.appendChild(statusIndicator);
+            label.appendChild(document.createTextNode(`${field.name}${field.required === 0 ? ' (Optional)' : ' (Required)'}`));
+            
+            // Description removed for cleaner interface
+            
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = `field_${field.name}`;
+            
+            // Add field type information as data attribute
+            const fieldType = fieldTypes.find(ft => ft[0] === field.name);
+            if (fieldType) {
+                input.setAttribute('data-field-type', fieldType[1].type);
+            }
+            
+            // Add enhanced field information as data attributes
+            if (field.type) {
+                input.setAttribute('data-field-type', field.type);
+            }
+            if (field.category) {
+                input.setAttribute('data-field-category', field.category);
+            }
+            
+            fieldDiv.appendChild(label);
+            fieldDiv.appendChild(input);
+            
+            // Add field type badge
+            if (field.type) {
+                const typeBadge = document.createElement('div');
+                typeBadge.className = 'field-type-badge';
+                typeBadge.textContent = field.type;
+                fieldDiv.appendChild(typeBadge);
+            }
+            
+            return fieldDiv;
+        }
+        
+        /**
+         * Build transaction from form fields
+         */
+        function buildTransaction() {
+            if (!currentTransactionFields) {
+                showStatus('No transaction fields loaded', 'error');
+                return;
+            }
+            
+            const transactionType = document.getElementById('transactionType').value;
+            const transaction = {
+                TransactionType: transactionType
+            };
+            
+            // Add fields from form
+            currentTransactionFields.forEach(field => {
+                const input = document.getElementById(`field_${field.name}`);
+                const value = input.value.trim();
+                
+                if (value) {
+                    // Convert value based on field type if needed
+                    const fieldType = input.getAttribute('data-field-type');
+                    let convertedValue = value;
+                    
+                    // Handle different field types
+                    if (fieldType === 'UInt32' || fieldType === 'UInt16' || fieldType === 'UInt64') {
+                        convertedValue = parseInt(value);
+                    } else if (fieldType === 'Amount') {
+                        // Keep as string for amounts
+                        convertedValue = value;
+                    }
+                    
+                    transaction[field.name] = convertedValue;
+                } else if (field.required === 0) {
+                    // Optional field, skip if empty
+                } else {
+                    showStatus(`Required field ${field.name} is missing`, 'error');
+                    return;
+                }
+            });
+            
+            // Add common fields if wallet is available
+            if (currentWallet) {
+                transaction.Account = currentWallet.address;
+            }
+            
+            builtTransaction = transaction;
+            
+            // Display the built transaction
+            document.getElementById('builtTransactionPreview').textContent = JSON.stringify(transaction, null, 2);
+            document.getElementById('transactionResult').classList.remove('hidden');
+            
+            showStatus('Transaction built successfully', 'success');
+        }
+        
+        /**
+         * Sign the built transaction
+         */
+        async function signTransaction() {
+            if (!builtTransaction) {
+                showStatus('No transaction to sign', 'error');
+                return;
+            }
+            
+            if (!currentWallet) {
+                showStatus('No wallet available for signing', 'error');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/sign-transaction', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        transaction: builtTransaction,
+                        walletSeed: currentWallet.seed
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    signedTransaction = data.signedTransaction;
+                    document.getElementById('signedTransactionPreview').textContent = JSON.stringify(data.signedTransaction, null, 2);
+                    document.getElementById('signedTransactionResult').classList.remove('hidden');
+                    showStatus('Transaction signed successfully', 'success');
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                console.error('Error signing transaction:', error);
+                showStatus('Error signing transaction: ' + error.message, 'error');
+            }
+        }
+        
+        // Global state for transaction processing
+        let currentTransactionHash = null;
+        let processingInterval = null;
+        let processingStartTime = null;
+        
+        /**
+         * Submit the signed transaction to the network
+         */
+        async function submitTransaction() {
+            if (!signedTransaction) {
+                showStatus('No signed transaction available', 'error');
+                return;
+            }
+            
+            // Show processing UI
+            document.getElementById('signedTransactionResult').classList.add('hidden');
+            document.getElementById('transactionProcessingResult').classList.remove('hidden');
+            
+            // Initialize processing state
+            processingStartTime = Date.now();
+            updateProcessingMessage('Submitting transaction to network...', 10);
+            
+            try {
+                const response = await fetch('/api/submit-transaction', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        signedTransaction: signedTransaction
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    currentTransactionHash = data.hash;
+                    
+                    if (data.validated) {
+                        // Transaction was validated immediately
+                        showTransactionSuccess(data);
+                    } else {
+                        // Start polling for validation
+                        startValidationPolling(data.hash);
+                    }
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                console.error('Error submitting transaction:', error);
+                showTransactionError('Error submitting transaction: ' + error.message);
+            }
+        }
+        
+        /**
+         * Start polling for transaction validation
+         */
+        function startValidationPolling(hash) {
+            updateProcessingMessage('Transaction submitted! Waiting for validation...', 50);
+            
+            let attempts = 0;
+            const maxAttempts = 60; // 5 minutes max
+            
+            processingInterval = setInterval(async () => {
+                attempts++;
+                const progress = Math.min(50 + (attempts / maxAttempts) * 40, 90);
+                updateProcessingMessage(`Checking validation status... (Attempt ${attempts})`, progress);
+                
+                try {
+                    const response = await fetch(`/api/transaction-status/${hash}`);
+                    const data = await response.json();
+                    
+                    if (data.success && data.validated) {
+                        clearInterval(processingInterval);
+                        showTransactionSuccess(data);
+                    } else if (attempts >= maxAttempts) {
+                        clearInterval(processingInterval);
+                        showTransactionError('Transaction validation timeout. Please check the transaction hash manually.');
+                    }
+                } catch (error) {
+                    console.error('Error checking transaction status:', error);
+                    if (attempts >= maxAttempts) {
+                        clearInterval(processingInterval);
+                        showTransactionError('Error checking transaction status: ' + error.message);
+                    }
+                }
+            }, 5000); // Check every 5 seconds
+        }
+        
+        /**
+         * Update processing message and progress
+         */
+        function updateProcessingMessage(message, progress) {
+            document.getElementById('processingMessage').textContent = message;
+            document.getElementById('progressFill').style.width = progress + '%';
+            
+            const elapsed = Math.floor((Date.now() - processingStartTime) / 1000);
+            const statusDetails = `Elapsed time: ${elapsed}s | Progress: ${progress}%`;
+            document.getElementById('statusDetails').textContent = statusDetails;
+        }
+        
+        /**
+         * Show transaction success
+         */
+        function showTransactionSuccess(data) {
+            updateProcessingMessage('Transaction validated successfully!', 100);
+            
+            const successHtml = `
+                <div class="transaction-success">
+                    <h4>✅ Transaction Validated</h4>
+                    <p><strong>Hash:</strong> ${data.hash}</p>
+                    <p><strong>Ledger Index:</strong> ${data.ledgerIndex || 'N/A'}</p>
+                    <p><strong>Status:</strong> ${data.engineResult || 'Success'}</p>
+                    <p><strong>Timestamp:</strong> ${data.timestamp || new Date().toISOString()}</p>
+                </div>
+            `;
+            
+            document.getElementById('statusDetails').innerHTML = successHtml;
+            
+            // Show success status
+            showStatus(`Transaction validated successfully! Hash: ${data.hash}`, 'success');
+            
+            // Refresh balance after successful submission
+            setTimeout(() => refreshBalance(), 2000);
+            
+            // Reset after 5 seconds
+            setTimeout(() => {
+                resetTransactionBuilder();
+            }, 5000);
+        }
+        
+        /**
+         * Show transaction error
+         */
+        function showTransactionError(error) {
+            updateProcessingMessage('Transaction failed', 100);
+            
+            const errorHtml = `
+                <div class="transaction-error">
+                    <h4>❌ Transaction Failed</h4>
+                    <p>${error}</p>
+                    ${currentTransactionHash ? `<p><strong>Hash:</strong> ${currentTransactionHash}</p>` : ''}
+                </div>
+            `;
+            
+            document.getElementById('statusDetails').innerHTML = errorHtml;
+            
+            // Show error status
+            showStatus('Transaction failed: ' + error, 'error');
+        }
+        
+        /**
+         * Cancel transaction processing
+         */
+        function cancelTransaction() {
+            if (processingInterval) {
+                clearInterval(processingInterval);
+            }
+            
+            document.getElementById('transactionProcessingResult').classList.add('hidden');
+            document.getElementById('signedTransactionResult').classList.remove('hidden');
+            
+            showStatus('Transaction processing cancelled', 'info');
+        }
+        
+        /**
+         * Edit the built transaction by going back to the fields form
+         */
+        function editTransaction() {
+            document.getElementById('transactionResult').classList.add('hidden');
+            document.getElementById('transactionFields').classList.remove('hidden');
+            showStatus('Transaction editing mode enabled', 'info');
+        }
+        
+        /**
+         * Reset the transaction builder to start over
+         */
+        function resetTransactionBuilder() {
+            // Clear processing state
+            if (processingInterval) {
+                clearInterval(processingInterval);
+            }
+            currentTransactionHash = null;
+            processingInterval = null;
+            processingStartTime = null;
+            
+            // Clear all form fields
+            if (currentTransactionFields) {
+                currentTransactionFields.forEach(field => {
+                    const input = document.getElementById(`field_${field.name}`);
+                    if (input) {
+                        input.value = '';
+                    }
+                });
+            }
+            
+            // Hide all sections
+            document.getElementById('transactionFields').classList.add('hidden');
+            document.getElementById('transactionResult').classList.add('hidden');
+            document.getElementById('signedTransactionResult').classList.add('hidden');
+            document.getElementById('transactionProcessingResult').classList.add('hidden');
+            
+            // Reset transaction type dropdown
+            document.getElementById('transactionType').value = '';
+            
+            // Clear global state
+            builtTransaction = null;
+            signedTransaction = null;
+            currentTransactionFields = null;
+            
+            showStatus('Transaction builder reset', 'info');
+        }
+        
+        // Load transaction definitions when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTransactionDefinitions();
+        });
 
     </script>
 </body>
