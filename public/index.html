@@ -656,13 +656,9 @@
             // Check balance
             refreshBalance();
             
-            // Auto-load AccountSet transaction with wallet address pre-filled
+            // Load transaction definitions but don't auto-select any transaction type
             setTimeout(() => {
                 loadTransactionDefinitions();
-                setTimeout(() => {
-                    document.getElementById('transactionType').value = 'AccountSet';
-                    loadTransactionFields();
-                }, 500);
             }, 1000);
         }
 
@@ -1244,7 +1240,7 @@
         function populateTransactionTypeDropdown(transactionTypes) {
             const select = document.getElementById('transactionType');
             
-            // Clear existing options except the first one
+            // Clear existing options
             select.innerHTML = '<option value="">Select a transaction type...</option>';
             
             // Add transaction types sorted alphabetically
@@ -1784,6 +1780,7 @@
         // Load transaction definitions when page loads
         document.addEventListener('DOMContentLoaded', function() {
             loadTransactionDefinitions();
+            // Don't auto-load any transaction type - start collapsed
         });
 
     </script>
